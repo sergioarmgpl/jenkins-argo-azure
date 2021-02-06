@@ -1,2 +1,4 @@
-ARGOCD=https://YOUR_SERVER
-curl -sSL -k $ARGOCD_SERVER/api/v1/session -d $'{"username":"admin","password":"password"}'
+# Jenkins + ArgoCD
+This repo contains the source of how to configure Jenkins and ArgoCD for CI/CD Pipelines
+## Slides
+- https://docs.google.com/presentation/d/1Ng5EX4hcrJvx_38UQWXt4PlCOfVKLaKyYme4AOodVYU/edit?usp=sharing
