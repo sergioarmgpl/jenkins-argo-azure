@@ -28,12 +28,28 @@ pipeline {
         stage('Deploy with Argo') {
             steps {
                 script {
+                    string(credentialsId: 'argo_token', variable: 'ARGO_TOKEN')
+                    ]) {
+
                         dir('src'){
                             env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
                             sh "make deploy_argo"
-                        }    
+                        }
+                    }    
                 }                
             }
         }
+
+                script {
+                    withCredentials([
+                    string(credentialsId: 'argo_token', variable: 'ARGO_TOKEN'),
+                    file(credentialsId: 'gcr-private-repo-reader', variable: 'GCR_KEY')
+                    ]) {
+                        dir('src'){
+                            sh "make deploy"
+                        }    
+                    }
+                }    
+
     }
 }
