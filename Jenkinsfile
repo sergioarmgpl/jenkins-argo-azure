@@ -3,11 +3,11 @@ pipeline {
     environment { 
         APP_VERSION = '0.0.1'
         IMG_NAME = 'app1'
-        ARGOCD_SERVER='argocd.cnca.tk'
-        ARGO_PROJECT='testargo'
+        ARGOCD_SERVER='argocd.cnca.io'
+        ARGO_PROJECT='app1'
         NAMESPACE='dev'
         AZ_REGISTRY='codecamp2021.azurecr.io'
-        DOMAIN='app1.demo.cnca.tk'
+        DOMAIN='app1.demo.cnca.io'
     }
     stages {
         stage('Build & Test Dev') {
