@@ -20,7 +20,7 @@ deploy_argo:
 	curl -sSL -k -o argocd https://${ARGOCD_SERVER}/download/argocd-linux-amd64
 	chmod 755 argocd
 	./argocd app set ${ARGO_PROJECT} -p dockerImage="${DOCKER_REPO}/${IMG_NAME}:${APP_VERSION}-${BUILD_NUMBER}" \
-	-p namespace="${NAMESPACE}" -p message="hello world USAC :) :)" --auth-token ${ARGO_TOKEN}
+	-p namespace="${NAMESPACE}" -p message="hello world CodeCamp 2021" --auth-token ${ARGO_TOKEN}
 	./argocd app sync ${ARGO_PROJECT} --auth-token ${ARGO_TOKEN}
 	rm argocd
 	echo "deployed done"
